@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Jsonify
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 JOBS = [{
@@ -30,7 +30,7 @@ def hello_world():
 
 @app.route("/jobs")
 def list_jobs():
-  return Jsonify(JOBS)
+  return jsonify(JOBS)
 
 
 if __name__ == '__main__':
