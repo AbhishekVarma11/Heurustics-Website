@@ -16,17 +16,25 @@
 <body>
   {% include 'navbar.html' %}
   <div class="container">
-	<h1 class="text-center" mt-2 mb-4>{{company_name}} Careers</h1>
+	
 	<img class="img-fluid"id="banner" src="https://flask-first-website-1.abhishekvarma11.repl.co/static/banner.jpg" alt="Image not Loaded width="320" height="320">
-	<h2 class="text-center" mt-2 mb-4>About</h2>
-	<p class="lead">The field of information technology (IT) is one of the most rapidly growing and constantly evolving industries in the world. With the ever-increasing demand for technology solutions across all industries, the IT career path offers a wide range of exciting opportunities for those interested in computer science, programming, networking, cybersecurity, and more.</p>
-	<h2 class="text-center" mt-2 mb-4>Open Job Positions</h2>
-    <div>
+    <h1 class="text-center" mt-2 mb-4>{{company_name}} Careers</h1>
+    <div class="row" style="margin-bottom:16px;padding-top:16px">
+      <div class="col-6">
+      
+	
+	<p class="lead" style="padding-top:40px">The field of information technology (IT) is one of the most rapidly growing and constantly evolving industries in the world. With the ever-increasing demand for technology solutions across all industries, the IT career path offers a wide range of exciting opportunities for those interested in computer science, programming, networking, cybersecurity, and more.</p>
+	</div>
+      <div class="col-6">
+        <div class="d-none d-md-block col-md-6">
+        <img src="/static/people.jpg" style="height:320px;border-radius:4px;">
+      </div>
+    </div>
+    <h2 class="text-center" mt-4 mb-4 >Open Job Positions</h2>
     {%for job in jobs%}
       {% include 'jobitem.html' %}
     {% endfor %}
     </div>
-	<p class="text-center",class="lead" >Show Jobs Here</p>
     <div class="text-center">
 	<button class="btn btn-primary btn-lg">Contact Us</button>
     </div>
