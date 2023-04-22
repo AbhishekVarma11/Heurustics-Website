@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+from database import load_jobs_from_db
 
 app = Flask(__name__)
 JOBS = [{
@@ -24,8 +25,9 @@ JOBS = [{
 
 
 @app.route('/')
-def hello_world():
-  return render_template('home.html', jobs=JOBS, company_name='Heuristics')
+def hello_heurustics():
+  jobs = load_jobs_from_db()
+  return render_template('home.html', jobs=jobs, company_name='Heuristics')
 
 
 @app.route("/jobs")
