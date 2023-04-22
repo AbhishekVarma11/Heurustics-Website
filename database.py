@@ -1,17 +1,12 @@
+import os
 from sqlalchemy import create_engine, text
 
-# Replace the values inside the quotes with your MySQL server details
-db_username = "wds79edvl8dln0fxgto0"
-db_password = "pscale_pw_1WbfNJjwT5VHzsOZeAyXOr0csLBr8XZDKiC5DEjScPS"
-db_host = "aws.connect.psdb.cloud"
-db_port = "3306"
-db_name = "heurustics-careers-website"
 
 # Create the database connection URL
-db_url = f"mysql+pymysql://{db_username}:{db_password}@{db_host}:{db_port}/{db_name}"
+my_secret = os.environ['DB_CONNECTION_STRING']
 
 # Create the database engine
-engine = create_engine(db_url,
+engine = create_engine(my_secret,
                        connect_args={"ssl": {
                          "ssl_ca": "/etc/ssl/cert.pem"
                        }})
