@@ -1,7 +1,6 @@
 import os
 from sqlalchemy import create_engine, text
 
-
 # Create the database connection URL
 my_secret = os.environ['DB_CONNECTION_STRING']
 
@@ -23,3 +22,19 @@ def load_jobs_from_db():
     jobs.append(dict(zip(column_names, row)))
 
   return jobs
+
+
+def load_job_from_job(id):
+  with engine.connect() as conn:
+    result = conn.execute(text(f"select * from jobs where id={id}"))
+    column_names = result.keys()
+    rows = result.all()
+    if len(rows) == 0:
+      return None
+    else:
+      jobs = []
+
+      for row in rows:
+        jobs.append(dict(zip(column_names, row)))
+      print(jobs)
+      return jobs
