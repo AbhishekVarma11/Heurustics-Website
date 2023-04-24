@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Details</title>
+  </head>
+  <body>
+    <h1>{{ job_details['title'] }}</h1>
+    <h3>{{ job_details.location }}</h3>
+    <p>Salary: {{ job_details.salary }}</p>
+    <h2>Requirements:</h2>
+    <ul>
+      {% for requirement in job_details.requirements %}
+        <li>{{ requirement }}</li>
+      {% endfor %}
+    </ul>
+    <h2>Responsibilities:</h2>
+    <ul>
+      {% for responsibility in job_details.responsibilities %}
+        <li>{{ responsibility }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

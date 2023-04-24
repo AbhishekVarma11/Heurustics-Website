@@ -27,14 +27,11 @@ def load_jobs_from_db():
 def load_job_from_job(id):
   with engine.connect() as conn:
     result = conn.execute(text(f"select * from jobs where id={id}"))
-    column_names = result.keys()
-    rows = result.all()
+    #column_names = result.keys()
+    rows=[]
+    for row in result.all():
+      rows.append(row._mapping)
     if len(rows) == 0:
       return None
     else:
-      jobs = []
-
-      for row in rows:
-        jobs.append(dict(zip(column_names, row)))
-      print(jobs)
-      return jobs
+      return [dict(row) for row in rows]
